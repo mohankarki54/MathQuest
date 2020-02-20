@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#aabec2</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="lightred">#ff3377</color>
+    <color name="text_color">#447ac4</color>
+    <color name="text_color_alert">#ff7142</color>
+    <color name="text_color_button">#bd2a71</color>
+    <color name="text_color_num">#2d999f</color>
+    <color name="first_page">#FFF8E7</color>
+</resources>
