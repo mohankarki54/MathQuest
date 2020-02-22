@@ -12,14 +12,31 @@ import android.widget.ImageButton;
 public class Homepage extends AppCompatActivity {
 
     private Button button1,button2,button3,button4,button5,button6,button7,button8;
-    private ImageButton imageButton1;
+    private ImageButton to_addition, to_score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-       imageButton1 = findViewById(R.id.imageButton1);
+       to_addition = findViewById(R.id.imageButton1);
+
+       to_addition.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(), Addition.class));
+               finish();
+           }
+       });
+
+       to_score = findViewById(R.id.imageButton7);
+       to_score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), scores.class));
+                finish();
+            }
+        });
 
     }
 

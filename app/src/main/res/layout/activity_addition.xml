@@ -164,7 +164,7 @@
             android:layout_height="122dp"
             android:onClick="chooseAnswer"
             android:soundEffectsEnabled="false"
-            android:tag="0"
+            android:tag="2"
             android:text="23"
             android:textColor="@color/text_color_num"
             android:textSize="65sp" />
@@ -177,7 +177,7 @@
             android:layout_marginRight="20dp"
             android:onClick="chooseAnswer"
             android:soundEffectsEnabled="false"
-            android:tag="1"
+            android:tag="3"
             android:text="30"
             android:textColor="@color/text_color_num"
             android:textSize="65sp" />

@@ -38,9 +38,9 @@
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/add"
@@ -56,9 +56,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="53dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="53dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/subtract"
@@ -67,14 +67,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton1" />
 
+
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="12dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/divison"
@@ -91,6 +93,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="72dp"
         android:layout_marginEnd="72dp"
+        android:layout_marginBottom="7dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/multiplication"
@@ -107,7 +110,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="72dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="14dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/mixed"
@@ -116,16 +119,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
-
     <ImageView
         android:id="@+id/imgSound"
         android:layout_width="115dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="23dp"
         android:clickable="true"
         android:soundEffectsEnabled="false"
         android:src="@drawable/sound_on"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
@@ -133,33 +135,33 @@
     <ImageButton
         android:id="@+id/imageButton6"
         android:layout_width="0dp"
-        android:layout_height="73dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="11dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/instruction"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgSound" />
+        app:layout_constraintTop_toBottomOf="@+id/imgSound" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="93dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="58dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/imageButton9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgSound">
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6">
 
         <ImageButton
             android:id="@+id/imageButton8"
@@ -192,7 +194,7 @@
 
         android:layout_marginStart="72dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="6dp"
         android:background="@android:color/transparent"
         android:scaleType="center"
         android:src="@drawable/exit"
