@@ -9,7 +9,7 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int Welcome = 1500;
+    private static int Welcome = 1300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

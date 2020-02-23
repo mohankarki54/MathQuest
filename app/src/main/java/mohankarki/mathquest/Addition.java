@@ -24,6 +24,8 @@ import java.util.Random;
 
 public class Addition extends AppCompatActivity {
 
+    Calculation calculation;
+
     SharedPreferences sharedPreferencesinAddition;
     int level_status = 1;
     int score;
@@ -77,6 +79,7 @@ public class Addition extends AppCompatActivity {
     }
 
     public void playAgain(){
+        //This will initizile all the variable when the quiz is started.
         score = 0;
         numberOfQuestions = 0;
         point.setText("0");
@@ -127,30 +130,35 @@ public class Addition extends AppCompatActivity {
 
     public void generateQuestion(){
 
+        //This function will generate the question, answer, and set to the UI.
+
         defaultColor();
         setButtonClick();
 
         numberOfQuestions++;
         questionNo.setText(String.valueOf(numberOfQuestions));
         clicked = 0;
+
         Random rand = new Random();
-        int a = rand.nextInt(21);
-        int b = rand.nextInt(21);
+        int a = calculation.get_random_number(21);
+        int b = calculation.get_random_number(21);
 
         sum.setText(String.valueOf(a) + "+" + String.valueOf(b)+ "=");
 
-        locationOFCorrect = rand.nextInt(4);
+        locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
+
+        int add_answer = calculation.addition_result(a,b);
 
         int incorrectAnswer;
         for(int i = 0; i<4; i++){
             if(i == locationOFCorrect){
-                answers.add(a + b);
+                answers.add(add_answer);
 
             } else {
-                incorrectAnswer = rand.nextInt(41);
-                while(incorrectAnswer == a + b){
-                    incorrectAnswer = rand.nextInt(41);
+                incorrectAnswer = calculation.get_random_number(41);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(41);
                 }
                 answers.add(incorrectAnswer);
             }
@@ -165,6 +173,7 @@ public class Addition extends AppCompatActivity {
 
 
     public void chooseAnswer(View view){
+        //It will validate the answer that the user will select.
         if(view.getTag().toString().equals(Integer.toString(locationOFCorrect))){
 
             result.setText("!!! Correct !!!");
@@ -224,6 +233,7 @@ public class Addition extends AppCompatActivity {
     }
 
     public void nextQuestion(View view){
+        //It is used to skip the question.
         callQuestion();
     }
 
@@ -300,7 +310,7 @@ public class Addition extends AppCompatActivity {
 
 
     public void alertForDone(){
-
+        //It will be called when the time is finished.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         View mView = null;
         mView = (View) getLayoutInflater().inflate(R.layout.time_up,null);
@@ -323,6 +333,7 @@ public class Addition extends AppCompatActivity {
     }
 
     public void  alertBox() {
+        //It will display the result of the quiz, and promt to user what they want to do either try again or go home.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setCancelable(true);
         View mView = null;
