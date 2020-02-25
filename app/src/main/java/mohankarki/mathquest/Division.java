@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Addition extends AppCompatActivity {
+public class Division extends AppCompatActivity {
 
     Calculation calculation;
 
@@ -55,7 +55,7 @@ public class Addition extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addition);
+        setContentView(R.layout.activity_division);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
@@ -107,7 +107,7 @@ public class Addition extends AppCompatActivity {
                 setButtonCancel();
                 alertForDone();
             }
-            }.start();
+        }.start();
 
         start = new CountDownTimer(half, 1000) {
             @Override
@@ -141,25 +141,32 @@ public class Addition extends AppCompatActivity {
         clicked = 0;
 
         Random rand = new Random();
-        int a = calculation.get_random_number(21);
-        int b = calculation.get_random_number(21);
+        int a, b;
+        a = calculation.get_random_number(21);
+        b = calculation.get_random_number1(11,1);
 
-        sum.setText(String.valueOf(a) + "+" + String.valueOf(b)+ "=");
+
+        while( a % b != 0){
+            a = calculation.get_random_number(21);
+            b = calculation.get_random_number1(11,1);
+        }
+
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ "=");
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
 
-        int add_answer = calculation.addition_result(a,b);
+        int divide_answer = calculation.division_result(a,b);
 
         int incorrectAnswer;
         for(int i = 0; i<4; i++){
             if(i == locationOFCorrect){
-                answers.add(add_answer);
+                answers.add(divide_answer);
 
             } else {
-                incorrectAnswer = calculation.get_random_number(41);
-                while(incorrectAnswer == add_answer){
-                    incorrectAnswer = calculation.get_random_number(41);
+                incorrectAnswer = calculation.get_random_number(21);
+                while(incorrectAnswer == divide_answer){
+                    incorrectAnswer = calculation.get_random_number(21);
                 }
                 answers.add(incorrectAnswer);
             }

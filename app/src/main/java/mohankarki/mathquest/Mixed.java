@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Addition extends AppCompatActivity {
+public class Mixed extends AppCompatActivity {
 
     Calculation calculation;
 
@@ -55,7 +55,7 @@ public class Addition extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addition);
+        setContentView(R.layout.activity_mixed);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
@@ -107,7 +107,7 @@ public class Addition extends AppCompatActivity {
                 setButtonCancel();
                 alertForDone();
             }
-            }.start();
+        }.start();
 
         start = new CountDownTimer(half, 1000) {
             @Override
@@ -141,15 +141,15 @@ public class Addition extends AppCompatActivity {
         clicked = 0;
 
         Random rand = new Random();
-        int a = calculation.get_random_number(21);
-        int b = calculation.get_random_number(21);
+        int a = calculation.get_random_number(11);
+        int b = calculation.get_random_number(11);
 
-        sum.setText(String.valueOf(a) + "+" + String.valueOf(b)+ "=");
+        sum.setText(String.valueOf(a) + " * " + String.valueOf(b)+ "=");
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
 
-        int add_answer = calculation.addition_result(a,b);
+        int add_answer = calculation.multiplication_result(a,b);
 
         int incorrectAnswer;
         for(int i = 0; i<4; i++){
@@ -157,9 +157,9 @@ public class Addition extends AppCompatActivity {
                 answers.add(add_answer);
 
             } else {
-                incorrectAnswer = calculation.get_random_number(41);
+                incorrectAnswer = calculation.get_random_number(101);
                 while(incorrectAnswer == add_answer){
-                    incorrectAnswer = calculation.get_random_number(41);
+                    incorrectAnswer = calculation.get_random_number(101);
                 }
                 answers.add(incorrectAnswer);
             }

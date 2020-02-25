@@ -1,46 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".scores">
+    >
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView1"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/result" />
 
-    <ImageView
-        android:id="@+id/imgSound"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="17dp"
-        android:src="@drawable/score"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="87dp"
-        android:gravity="center"
-        android:text="Addition"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgSound" />
-
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
+        android:id="@+id/linearLayout13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="376dp"
-        android:text="Home"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:text="Player Name:"
+            android:textSize="25dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/addname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:text="Score:           "
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/addscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:text="Question:     "
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/addques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:text="Level:     "
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/addlevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="24dp"
+            android:text="Date:     "
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/adddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/goHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:soundEffectsEnabled="false"
+        android:text="Home"
+        android:textColor="@color/text_color_button" />
+
+
+</LinearLayout>
