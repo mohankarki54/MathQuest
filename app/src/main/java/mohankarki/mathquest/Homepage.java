@@ -2,9 +2,10 @@ package mohankarki.mathquest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,6 +14,7 @@ public class Homepage extends AppCompatActivity {
 
     private Button button1,button2,button3,button4,button5,button6,button7,button8;
     private ImageButton to_addition, to_subtraction, to_division, to_multiplication, to_mixed, to_instruction, to_credit ,to_score, to_exit;
+    private long back_pressed_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,11 +100,47 @@ public class Homepage extends AppCompatActivity {
         to_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Addition.class));
-                finish();
+                exit();
             }
         });
     }
 
+    public void exit(){
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        View mView = null;
+        mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
+        final Button done= (Button)mView.findViewById(R.id.done);
+        final Button cancel = (Button) mView.findViewById(R.id.can);
+        alertDialog.setView(mView);
+        final AlertDialog dialog = alertDialog.create();
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
 
-}
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (back_pressed_time + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        } else {
+            exit();
+        }
+        back_pressed_time = System.currentTimeMillis();
+
+    }
+
+    }

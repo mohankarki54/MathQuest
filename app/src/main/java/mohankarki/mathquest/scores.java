@@ -2,7 +2,9 @@ package mohankarki.mathquest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,7 @@ import org.w3c.dom.Text;
 
 public class scores extends AppCompatActivity {
 
-    private TextView addname, addsocre, addques, addlevel, adddate;
+    private TextView addsocre, addques, addlevel, adddate;
     private Button goHome;
 
     @Override
@@ -20,7 +22,6 @@ public class scores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
 
-        addname = findViewById(R.id.addname);
         addsocre = findViewById(R.id.addscore);
         addques = findViewById(R.id.addques);
         addlevel = findViewById(R.id.addlevel);
@@ -35,11 +36,17 @@ public class scores extends AppCompatActivity {
             }
         });
 
-        addname.setText("Demo");
-        addsocre.setText("0");
-        addques.setText("1");
-        addlevel.setText("1");
-        adddate.setText("02-20-2020");
+        SharedPreferences addition_result = getSharedPreferences("Add", Context.MODE_PRIVATE);
+        int score = addition_result.getInt("score", 0);
+        int question = addition_result.getInt("question", 0);
+        int level = addition_result.getInt("level", 0);
+        String date = addition_result.getString("Date", "02-22-2020");
+
+
+        addsocre.setText(String.valueOf(score));
+        addques.setText(String.valueOf(question));
+        addlevel.setText(String.valueOf(level));
+        adddate.setText(date);
 
     }
 }

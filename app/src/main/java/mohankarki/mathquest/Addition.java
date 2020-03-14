@@ -3,6 +3,7 @@ package mohankarki.mathquest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ public class Addition extends AppCompatActivity {
     Calculation calculation;
 
     SharedPreferences sharedPreferencesinAddition;
+
     int level_status = 1;
     int score;
     int numberOfQuestions = 0;
@@ -105,6 +107,16 @@ public class Addition extends AppCompatActivity {
                 half = 0;
                 start.cancel();
                 setButtonCancel();
+
+                sharedPreferencesinAddition = getSharedPreferences("Add", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
+                editor.putInt("level", level_status);
+                editor.putString("Date", date);
+                editor.putInt("question",numberOfQuestions);
+                editor.putInt("score", score);
+                editor.apply();
+
+                end.cancel();
                 alertForDone();
             }
             }.start();
@@ -124,6 +136,13 @@ public class Addition extends AppCompatActivity {
                 half = 0;
                 timer.setText("0s");
                 setButtonCancel();
+                sharedPreferencesinAddition = getSharedPreferences("Add", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
+                editor.putInt("level", level_status);
+                editor.putString("Date", date);
+                editor.putInt("question",numberOfQuestions);
+                editor.putInt("score", score);
+                editor.apply();
                 alertForDone();
             }
         }.start();
