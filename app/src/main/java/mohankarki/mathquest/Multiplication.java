@@ -46,7 +46,7 @@ public class Multiplication extends AppCompatActivity {
     private ImageView clock;
     private ProgressBar progressBar;
     private TextView timer, result, point, questionNo, level, sum;
-    private Button button2, button3, button4, button5, skip;
+    private Button button2, button3, button4, button5;
 
     //To set the result in Score
     TextView addname, addscore, addques,adddate;
@@ -63,7 +63,6 @@ public class Multiplication extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.time);
         point= (TextView) findViewById(R.id.point);
         sum = (TextView) findViewById(R.id.sum);
-        skip = (Button) findViewById(R.id.skip);
         result = (TextView) findViewById(R.id.result);
         questionNo = (TextView)findViewById(R.id.questionNo);
         progressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
@@ -140,7 +139,7 @@ public class Multiplication extends AppCompatActivity {
         questionNo.setText(String.valueOf(numberOfQuestions));
         clicked = 0;
 
-        Random rand = new Random();
+
         int a = calculation.get_random_number(11);
         int b = calculation.get_random_number(11);
 
@@ -313,8 +312,7 @@ public class Multiplication extends AppCompatActivity {
     public void alertForDone(){
         //It will be called when the time is finished.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.time_up,null);
+        View mView = (View) getLayoutInflater().inflate(R.layout.time_up,null);
         final Button show= (Button) mView.findViewById(R.id.result);
         alertDialog.setView(mView);
         final AlertDialog dialog = alertDialog.create();
@@ -337,8 +335,7 @@ public class Multiplication extends AppCompatActivity {
         //It will display the result of the quiz, and promt to user what they want to do either try again or go home.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setCancelable(true);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.mathfinalscore,null);
+        View mView = getLayoutInflater().inflate(R.layout.mathfinalscore,null);
         //final EditText username = (EditText) mView.findViewById(R.id.edit1);
         goHome = (Button) mView.findViewById(R.id.goHome);
         final Button tryagain = (Button)mView.findViewById(R.id.play);
@@ -390,8 +387,7 @@ public class Multiplication extends AppCompatActivity {
 
     public void exit(){
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
+        View mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
         final Button done= (Button)mView.findViewById(R.id.done);
         final Button cancel = (Button) mView.findViewById(R.id.can);
         alertDialog.setView(mView);

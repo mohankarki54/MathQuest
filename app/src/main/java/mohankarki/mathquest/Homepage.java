@@ -5,15 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 public class Homepage extends AppCompatActivity {
 
-    private Button button1,button2,button3,button4,button5,button6,button7,button8;
-    private ImageButton to_addition, to_subtraction, to_division, to_multiplication, to_mixed, to_instruction, to_credit ,to_score, to_exit;
+    private ImageButton to_addition, to_subtraction, to_division, to_multiplication, to_mixed, to_instruction,to_score, to_exit;
     private long back_pressed_time;
 
     @Override
@@ -27,10 +25,10 @@ public class Homepage extends AppCompatActivity {
        to_multiplication = findViewById(R.id.imageButton4);
        to_mixed = findViewById(R.id.imageButton5);
        to_instruction = findViewById(R.id.imageButton6);
-       to_credit = findViewById(R.id.imageButton8);
        to_score = findViewById(R.id.imageButton7);
        to_exit= findViewById(R.id.imageButton9);
 
+        //call_addition();
 
        to_addition.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -75,15 +73,7 @@ public class Homepage extends AppCompatActivity {
         to_instruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), instruction.class));
-                finish();
-            }
-        });
-
-        to_credit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), credits.class));
+                startActivity(new Intent(getApplicationContext(), Instruction.class));
                 finish();
             }
         });
@@ -92,7 +82,7 @@ public class Homepage extends AppCompatActivity {
         to_score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), scores.class));
+                startActivity(new Intent(getApplicationContext(), Scores.class));
                 finish();
             }
         });
@@ -107,8 +97,7 @@ public class Homepage extends AppCompatActivity {
 
     public void exit(){
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
+        View mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
         final Button done= (Button)mView.findViewById(R.id.done);
         final Button cancel = (Button) mView.findViewById(R.id.can);
         alertDialog.setView(mView);
@@ -117,7 +106,7 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                System.exit(0);
+                Runtime.getRuntime().halt(0);
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {

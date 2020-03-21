@@ -44,9 +44,10 @@ public class Calculation {
         return z;
     }
 
-    public static int mixed_result(int x, int y, int m){
-
-        int z = x + y - m;
+    public static int mixed_result(int a, int b, int c, int d){
+        int k = a * b;
+        int p = k - c;
+        int z = p + d;
         return z;
     }
 }

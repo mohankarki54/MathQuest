@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MathQuest</string>
+    <string name="instruction"> Once you clicked the Addition or Subtraction or Division or Multiplication or Mixed Quiz, it will load you quiz page. In this page, there will be four answers out of which you need to select one correct answer with in 10 seconds of Time. The total time for this game will be 60 seconds. If either one of the time is finished, then the Quiz if finished. The score will be increased as per the correct answer answered.   </string>
 </resources>

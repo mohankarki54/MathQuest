@@ -9,14 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".credits"></activity>
         <activity android:name=".Mixed" />
         <activity android:name=".Division" />
         <activity android:name=".Multiplication" />
-        <activity android:name=".scores" />
+        <activity android:name=".Scores" />
         <activity android:name=".Subtraction" />
         <activity android:name=".Addition" />
-        <activity android:name=".instruction" />
+        <activity android:name=".Instruction" />
         <activity android:name=".Homepage" />
         <activity android:name=".MainActivity">
             <intent-filter>

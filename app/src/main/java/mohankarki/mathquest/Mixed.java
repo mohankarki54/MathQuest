@@ -6,13 +6,13 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.MediaPlayer;
+
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Random;
+
 
 public class Mixed extends AppCompatActivity {
 
@@ -46,7 +46,7 @@ public class Mixed extends AppCompatActivity {
     private ImageView clock;
     private ProgressBar progressBar;
     private TextView timer, result, point, questionNo, level, sum;
-    private Button button2, button3, button4, button5, skip;
+    private Button button2, button3, button4, button5;
 
     //To set the result in Score
     TextView addname, addscore, addques,adddate;
@@ -63,7 +63,6 @@ public class Mixed extends AppCompatActivity {
         timer = (TextView) findViewById(R.id.time);
         point= (TextView) findViewById(R.id.point);
         sum = (TextView) findViewById(R.id.sum);
-        skip = (Button) findViewById(R.id.skip);
         result = (TextView) findViewById(R.id.result);
         questionNo = (TextView)findViewById(R.id.questionNo);
         progressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
@@ -140,16 +139,17 @@ public class Mixed extends AppCompatActivity {
         questionNo.setText(String.valueOf(numberOfQuestions));
         clicked = 0;
 
-        Random rand = new Random();
         int a = calculation.get_random_number(11);
         int b = calculation.get_random_number(11);
+        int c = calculation.get_random_number(11);
+        int d = calculation.get_random_number(11);
 
-        sum.setText(String.valueOf(a) + " * " + String.valueOf(b)+ "=");
+        sum.setText("("+ "(" +String.valueOf(a) + " * " + String.valueOf(b)+ ")"+ " - " + String.valueOf(c)+ ")" +" + "+ String.valueOf(d) + "=");
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
 
-        int add_answer = calculation.multiplication_result(a,b);
+        int add_answer = calculation.mixed_result(a,b,c,d);
 
         int incorrectAnswer;
         for(int i = 0; i<4; i++){
@@ -157,9 +157,9 @@ public class Mixed extends AppCompatActivity {
                 answers.add(add_answer);
 
             } else {
-                incorrectAnswer = calculation.get_random_number(101);
+                incorrectAnswer = calculation.get_random_number1(101,0);
                 while(incorrectAnswer == add_answer){
-                    incorrectAnswer = calculation.get_random_number(101);
+                    incorrectAnswer = calculation.get_random_number1(101,0);
                 }
                 answers.add(incorrectAnswer);
             }
@@ -266,24 +266,7 @@ public class Mixed extends AppCompatActivity {
 
         level.setText("Level: " + String.valueOf(level_status));
 
-        if(score<=13) {
-            generateQuestion();
-        }
-        else if(score>13 && score <=25){
-            generateQuestion();
-        }
-        else if(score>25&& score<=30){
-            generateQuestion();
-        }
-        else if(score>30 && score<=36){
-            generateQuestion();
-        }
-        else if(score>36 && score<=40){
-            generateQuestion();
-        }
-        else{
-            generateQuestion();
-        }
+        generateQuestion();
     }
 
 
@@ -313,8 +296,7 @@ public class Mixed extends AppCompatActivity {
     public void alertForDone(){
         //It will be called when the time is finished.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.time_up,null);
+        View mView = getLayoutInflater().inflate(R.layout.time_up,null);
         final Button show= (Button) mView.findViewById(R.id.result);
         alertDialog.setView(mView);
         final AlertDialog dialog = alertDialog.create();
@@ -337,8 +319,7 @@ public class Mixed extends AppCompatActivity {
         //It will display the result of the quiz, and promt to user what they want to do either try again or go home.
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setCancelable(true);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.mathfinalscore,null);
+        View mView = (View) getLayoutInflater().inflate(R.layout.mathfinalscore,null);
         //final EditText username = (EditText) mView.findViewById(R.id.edit1);
         goHome = (Button) mView.findViewById(R.id.goHome);
         final Button tryagain = (Button)mView.findViewById(R.id.play);
@@ -390,8 +371,7 @@ public class Mixed extends AppCompatActivity {
 
     public void exit(){
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        View mView = null;
-        mView = (View) getLayoutInflater().inflate(R.layout.forexit,null);
+        View mView = getLayoutInflater().inflate(R.layout.forexit,null);
         final Button done= (Button)mView.findViewById(R.id.done);
         final Button cancel = (Button) mView.findViewById(R.id.can);
         alertDialog.setView(mView);

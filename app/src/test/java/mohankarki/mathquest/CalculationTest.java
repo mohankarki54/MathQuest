@@ -1,6 +1,10 @@
 package mohankarki.mathquest;
 
+import android.util.Log;
+
 import org.junit.Test;
+
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -30,6 +34,14 @@ public class CalculationTest {
         ans = calculation.addition_result(a,b);
 
         assertNotEquals(expected, ans);
+
+    }
+    @Test
+    public void check(){
+        Addition addition = new Addition();
+        //addition.generateQuestion();
+        int val = 8;
+        assertNotNull(val);
     }
 
 }

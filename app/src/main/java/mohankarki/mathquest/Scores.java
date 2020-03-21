@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class scores extends AppCompatActivity {
+public class Scores extends AppCompatActivity {
 
     private TextView addsocre, addques, addlevel, adddate;
     private Button goHome;
