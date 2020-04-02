@@ -1,10 +1,16 @@
                                                      MathQuest
-                                                     
-MathQuest is an educational Android application designed with a primary focus for students with a beginner-level
+Team Members: 
+Mohan Karki
+Lokendra Chettri
+Tasnim Albosstani
+Andrew Tran
+ 
+  MathQuest is an educational Android application designed with a primary focus for students with a beginner-level
 status in mathematics.
 
 Vision Statement:
  Our mission is to develop an educational oriented android application, that provides an exciting alternative to common learning practices, while also effectively enhancing the users’ math skills.
+ 
 
 Following these set of instructions can lead to successfully compiling and running the application:
 
@@ -30,8 +36,7 @@ https://github.com/mohankarki54/MathQuest . On the upper right of the screen, yo
 
 8.  In order to run the application, you need to create the virtual emulator or have an actual physical device. If you have the physical device then go to the setting and turn on the developer mode and then debugging mode on too. In order to create the virtual emulator,
     16
-following these steps: Tools > AVD Manager > Create Virtual Machine > Select Device
-> Select OS and Download it > Press Finish.
+following these steps: Tools > AVD Manager > Create Virtual Machine > Select Device > Select OS and Download it > Press Finish.
 
 9. If you are using the Windows OS then you need to enable emulator in the BIOS setting
 which you can be do by visiting this tutorial:
@@ -43,11 +48,23 @@ by building project and run project at once and it can be done by Run > Run ‘a
 11. Once the app is successfully run on your selected device, then you browse the exciting features of our application.
 Test Case Instructions
 
-Currently we have these four unit tests for our application. Follow these instructions in order to successfully execute:
+In order to run the unit test cases. Follow these instructions in order to successfully execute them:
 
 1. On the upper left, go to App > java > mohankarki.mathquest (test) > right click calculationTest.
 
 2. Upon right click, it will display the option, then press Run ‘calculationTest’ and it will validate the unit function of our program.
 
- 
+ Instructions on how to use the application:
+
+1.	Click the desired mode to play the game.
+2.	Initially, you will be awarded 30 seconds to finish the game for the level 1 mode, you’ll have 10 seconds to pick the right option for each question.
+a.	If you select the right option, you’ll be awarded points for that question and next question will show. 
+b.	However, if the option you selected is incorrect, !!!Wrong!!! message will be show and correct option will be highlighted, with red box.
+3.	Once the timer is over, and your level, Score and number of questions you had attempted will show in the screen.
+4.	To try again the same level, press TRY AGAIN, to go back press HOME. 
+5.	We have different modes of games to choose from, addition, subtraction, division, multiplication and mixed quizzes. 
+6.	Select the Score to see your overall score.  
+7.	Once done, press the EXIT to quit the game.
+8.	GOOD LUCK!!
+
   
