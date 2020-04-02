@@ -1,18 +1,23 @@
 package mohankarki.mathquest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
 
 public class Homepage extends AppCompatActivity {
 
     private ImageButton to_addition, to_subtraction, to_division, to_multiplication, to_mixed, to_instruction,to_score, to_exit;
     private long back_pressed_time;
+
+    //DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +33,11 @@ public class Homepage extends AppCompatActivity {
        to_score = findViewById(R.id.imageButton7);
        to_exit= findViewById(R.id.imageButton9);
 
-        //call_addition();
 
        to_addition.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+
                startActivity(new Intent(getApplicationContext(), Addition.class));
                finish();
            }
@@ -132,4 +137,5 @@ public class Homepage extends AppCompatActivity {
 
     }
 
-    }
+
+}

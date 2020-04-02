@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private static int Welcome = 1300;

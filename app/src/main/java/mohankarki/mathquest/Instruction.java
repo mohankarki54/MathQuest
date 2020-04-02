@@ -26,4 +26,11 @@ public class Instruction extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), Homepage.class);
+        startActivity(intent);
+        finish();
+    }
 }

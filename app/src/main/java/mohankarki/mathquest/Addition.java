@@ -7,21 +7,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Random;
+
 
 public class Addition extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class Addition extends AppCompatActivity {
     long afterfulltime, afterhalftime;
 
     int locationOFCorrect;
-    ArrayList<Integer> answers = new ArrayList<Integer>();
+    ArrayList<Integer> answers = new ArrayList<Integer>(); //will hold all the answers
 
     private ImageView clock;
     private ProgressBar progressBar;
@@ -51,8 +51,10 @@ public class Addition extends AppCompatActivity {
     private Button button2, button3, button4, button5;
 
     //To set the result in Score
-    TextView addname, addscore, addques,adddate;
+    TextView addscore, addques,adddate;
     Button goHome;
+
+    int level_score = 8; // this is to check the score and increase the level as per it.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,7 @@ public class Addition extends AppCompatActivity {
 
         date = getCurrentDate(); //Gets the current date.
         full = 90000;
-        half =10000;
+        half =15000;
         playAgain();
     }
 
@@ -90,7 +92,6 @@ public class Addition extends AppCompatActivity {
         level.setText("Level: " + String.valueOf(level_status));
 
         generateQuestion();
-
 
         end = new CountDownTimer(full,1000) {
             @Override
@@ -107,13 +108,7 @@ public class Addition extends AppCompatActivity {
                 start.cancel();
                 setButtonCancel();
 
-                sharedPreferencesinAddition = getSharedPreferences("Add", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
-                editor.putInt("level", level_status);
-                editor.putString("Date", date);
-                editor.putInt("question",numberOfQuestions);
-                editor.putInt("score", score);
-                editor.apply();
+                save_data_to_sharedPreferences();
 
                 end.cancel();
                 alertForDone();
@@ -135,13 +130,10 @@ public class Addition extends AppCompatActivity {
                 half = 0;
                 timer.setText("0s");
                 setButtonCancel();
-                sharedPreferencesinAddition = getSharedPreferences("Add", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
-                editor.putInt("level", level_status);
-                editor.putString("Date", date);
-                editor.putInt("question",numberOfQuestions);
-                editor.putInt("score", score);
-                editor.apply();
+
+                save_data_to_sharedPreferences();
+
+                end.cancel();
                 alertForDone();
             }
         }.start();
@@ -150,14 +142,12 @@ public class Addition extends AppCompatActivity {
     public void generateQuestion(){
 
         //This function will generate the question, answer, and set to the UI.
-
         defaultColor();
         setButtonClick();
 
         numberOfQuestions++;
         questionNo.setText(String.valueOf(numberOfQuestions));
         clicked = 0;
-
 
         int a = calculation.get_random_number(21);
         int b = calculation.get_random_number(21);
@@ -190,6 +180,88 @@ public class Addition extends AppCompatActivity {
 
     }
 
+    public void medium_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(31);
+        int b = calculation.get_random_number(31);
+
+        sum.setText(String.valueOf(a) + "+" + String.valueOf(b)+ "=");
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.addition_result(a,b);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(61);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(61);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
+
+    public void hard_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(21);
+        int b = calculation.get_random_number(21);
+        int c = calculation.get_random_number(21);
+
+        sum.setText(String.valueOf(a) + "+" + String.valueOf(b) + "+" + String.valueOf(c) + "=");
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.addition_result_three(a,b,c);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(61);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(61);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
 
     public void chooseAnswer(View view){
         //It will validate the answer that the user will select.
@@ -238,7 +310,7 @@ public class Addition extends AppCompatActivity {
                         button5.setBackgroundColor(Color.GREEN);
                     }
                 }
-            }, 600);
+            }, 400);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -246,7 +318,7 @@ public class Addition extends AppCompatActivity {
                     start.start();
                     callQuestion();
                 }
-            }, 1000);
+            }, 1300);
         }
         point.setText(Integer.toString(score));
     }
@@ -257,53 +329,24 @@ public class Addition extends AppCompatActivity {
     }
 
     public void callQuestion(){
-        int flag;
 
-        if(score == 13) {
-            flag = 1;
-        }
-        else if(score ==25){
-            flag = 1;
-        }
-        else if(score ==30){
-            flag  = 1;
-        }
-        else if(score==36){
-            flag = 1;
-        }
-        else if(score > 45){
-            flag = 1;
-        }
-        else{
-            flag = 0;
-        }
-
-        if(flag == 1){
-            level_status = level_status + 1;
+        if(score == level_score){
+            level_status += 1;
+            level_score += 8;
         }
 
         level.setText("Level: " + String.valueOf(level_status));
 
-        if(score<=13) {
+        if(level_status < 3){
             generateQuestion();
         }
-        else if(score>13 && score <=25){
-            generateQuestion();
-        }
-        else if(score>25&& score<=30){
-            generateQuestion();
-        }
-        else if(score>30 && score<=36){
-            generateQuestion();
-        }
-        else if(score>36 && score<=40){
-            generateQuestion();
+        else if(level_status < 5){
+            medium_Question();
         }
         else{
-            generateQuestion();
+          hard_Question();
         }
     }
-
 
     public void setButtonCancel(){
         button2.setClickable(false);
@@ -358,14 +401,12 @@ public class Addition extends AppCompatActivity {
         //final EditText username = (EditText) mView.findViewById(R.id.edit1);
         goHome = (Button) mView.findViewById(R.id.goHome);
         final Button tryagain = (Button)mView.findViewById(R.id.play);
-        addname = (TextView)mView.findViewById(R.id.addname);
         addscore = (TextView)mView.findViewById(R.id.addscore);
         addques = (TextView)mView.findViewById(R.id.addques);
         adddate = (TextView)mView.findViewById(R.id.adddate);
         final TextView addlevel = (TextView) mView.findViewById(R.id.addlevel);
 
         //Setting label
-        addname.setText("Demo");
         addscore.setText(String.valueOf(score));
         addques.setText(String.valueOf(numberOfQuestions));
         adddate.setText(date);
@@ -378,7 +419,7 @@ public class Addition extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 full = 90000;
-                half =10000;
+                half =15000;
                 playAgain();
                 dialog.cancel();
             }
@@ -431,6 +472,17 @@ public class Addition extends AppCompatActivity {
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
 
+    }
+
+    public void save_data_to_sharedPreferences(){
+        //This function will store the user status of level, Date, question, score using SharedPrefences method.
+        sharedPreferencesinAddition = getSharedPreferences("Add", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
+        editor.putInt("level", level_status);
+        editor.putString("Date", date);
+        editor.putInt("question",numberOfQuestions);
+        editor.putInt("score", score);
+        editor.apply();
     }
 
     @Override

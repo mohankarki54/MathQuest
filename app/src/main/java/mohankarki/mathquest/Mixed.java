@@ -3,6 +3,7 @@ package mohankarki.mathquest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -49,7 +50,7 @@ public class Mixed extends AppCompatActivity {
     private Button button2, button3, button4, button5;
 
     //To set the result in Score
-    TextView addname, addscore, addques,adddate;
+    TextView  addscore, addques,adddate;
     Button goHome;
 
     @Override
@@ -103,6 +104,7 @@ public class Mixed extends AppCompatActivity {
                 full = 0;
                 half = 0;
                 start.cancel();
+                save_data_to_sharedPreferences();
                 setButtonCancel();
                 alertForDone();
             }
@@ -122,6 +124,7 @@ public class Mixed extends AppCompatActivity {
                 full = 0;
                 half = 0;
                 timer.setText("0s");
+                save_data_to_sharedPreferences();
                 setButtonCancel();
                 alertForDone();
             }
@@ -323,14 +326,14 @@ public class Mixed extends AppCompatActivity {
         //final EditText username = (EditText) mView.findViewById(R.id.edit1);
         goHome = (Button) mView.findViewById(R.id.goHome);
         final Button tryagain = (Button)mView.findViewById(R.id.play);
-        addname = (TextView)mView.findViewById(R.id.addname);
+
         addscore = (TextView)mView.findViewById(R.id.addscore);
         addques = (TextView)mView.findViewById(R.id.addques);
         adddate = (TextView)mView.findViewById(R.id.adddate);
         final TextView addlevel = (TextView) mView.findViewById(R.id.addlevel);
 
         //Setting label
-        addname.setText("Demo");
+
         addscore.setText(String.valueOf(score));
         addques.setText(String.valueOf(numberOfQuestions));
         adddate.setText(date);
@@ -396,6 +399,17 @@ public class Mixed extends AppCompatActivity {
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);
 
+    }
+
+    public void save_data_to_sharedPreferences(){
+        //This function will store the user status of level, Date, question, score using SharedPrefences method.
+        sharedPreferencesinAddition = getSharedPreferences("mix", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesinAddition.edit();
+        editor.putInt("level", level_status);
+        editor.putString("Date", date);
+        editor.putInt("question",numberOfQuestions);
+        editor.putInt("score", score);
+        editor.apply();
     }
 
     @Override
