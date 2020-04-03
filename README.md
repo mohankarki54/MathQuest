@@ -57,7 +57,7 @@ In order to run the unit test cases. Follow these instructions in order to succe
  Instructions on how to use the application:
 
 1.	Click the desired mode to play the game.
-2.	Initially, you will be awarded 30 seconds to finish the game for the level 1 mode, you’ll have 10 seconds to pick the right option for each question.
+2.	Initially, you will be awarded 90 seconds to finish the game for the level 1 mode, you’ll have 15 seconds to pick the right option for each question.
 a.	If you select the right option, you’ll be awarded points for that question and next question will show. 
 b.	However, if the option you selected is incorrect, !!!Wrong!!! message will be show and correct option will be highlighted, with red box.
 3.	Once the timer is over, and your level, Score and number of questions you had attempted will show in the screen.
