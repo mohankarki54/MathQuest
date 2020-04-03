@@ -77,7 +77,7 @@ public class Mixed extends AppCompatActivity {
 
         date = getCurrentDate(); //Gets the current date.
         full = 90000;
-        half =10000;
+        half =15000;
         playAgain();
     }
 
@@ -425,7 +425,7 @@ public class Mixed extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 full = 90000;
-                half =10000;
+                half =15000;
                 playAgain();
                 dialog.cancel();
             }

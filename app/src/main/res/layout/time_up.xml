@@ -18,11 +18,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text"
-        android:textSize="32dp"
+        android:textSize="25dp"
         android:textColor="@color/text_color_alert"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="-- Your time is over --"
+        android:text="-Your time is over-"
+        android:fontFamily="serif-monospace"
         android:textAlignment="center" />
 
     <LinearLayout
@@ -36,9 +37,10 @@
         <Button
             android:id="@+id/result"
             android:text="ok"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:soundEffectsEnabled="false"
             android:layout_width="wrap_content"
+            android:fontFamily="serif-monospace"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
             android:textColor="@color/text_color_button"

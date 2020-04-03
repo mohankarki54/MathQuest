@@ -77,7 +77,7 @@ public class Multiplication extends AppCompatActivity {
 
         date = getCurrentDate(); //Gets the current date.
         full = 90000;
-        half =10000;
+        half =15000;
         playAgain();
     }
 
@@ -335,8 +335,7 @@ public class Multiplication extends AppCompatActivity {
         level.setText("Level: " + String.valueOf(level_status));
 
         if(level_status < 3){
-            hard_Question();
-            //generateQuestion();
+            generateQuestion();
         }
         else if(level_status < 5){
             medium_Question();
@@ -419,7 +418,7 @@ public class Multiplication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 full = 90000;
-                half =10000;
+                half = 15000;
                 playAgain();
                 dialog.cancel();
             }

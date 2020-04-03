@@ -9,7 +9,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView1"
         android:layout_width="match_parent"
-        android:layout_height="219dp"
+        android:layout_height="200dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="32dp"
@@ -27,7 +27,9 @@
             android:layout_height="wrap_content"
             android:paddingRight="24dp"
             android:text="Score:           "
+            android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
+            android:textColor="@color/result_text"
             android:textSize="25dp" />
 
         <TextView
@@ -36,6 +38,8 @@
             android:layout_height="wrap_content"
             android:hint=""
             android:paddingLeft="15dp"
+            android:textColor="@color/result_text"
+            android:fontFamily="serif-monospace"
             android:paddingRight="15dp"
             android:textSize="25dp" />
     </LinearLayout>
@@ -52,6 +56,8 @@
             android:layout_height="wrap_content"
             android:paddingRight="24dp"
             android:text="Question:     "
+            android:textColor="@color/result_text"
+            android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
             android:textSize="25dp" />
 
@@ -60,6 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
+            android:textColor="@color/result_text"
+            android:fontFamily="serif-monospace"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -75,14 +83,18 @@
             android:layout_height="wrap_content"
             android:paddingRight="24dp"
             android:text="Level:     "
+            android:textColor="@color/result_text"
             android:layout_marginLeft="25dp"
+            android:fontFamily="serif-monospace"
             android:textSize="25dp" />
 
         <TextView
             android:id="@+id/addlevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
             android:paddingLeft="20dp"
+            android:textColor="@color/result_text"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -97,6 +109,8 @@
             android:layout_height="wrap_content"
             android:paddingRight="24dp"
             android:text="Date:     "
+            android:textColor="@color/result_text"
+            android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
             android:textSize="25dp" />
 
@@ -104,7 +118,9 @@
             android:id="@+id/adddate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
             android:paddingLeft="20dp"
+            android:textColor="@color/result_text"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -140,9 +156,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:fontFamily="serif-monospace"
             android:layout_weight="1"
             android:soundEffectsEnabled="false"
-            android:text="Try again"
+            android:text="Play Again"
             android:textColor="@color/text_color_button" />
 
         <Button
@@ -150,14 +167,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:fontFamily="serif-monospace"
             android:layout_weight="1"
             android:soundEffectsEnabled="false"
             android:text="Home"
             android:textColor="@color/text_color_button" />
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>
