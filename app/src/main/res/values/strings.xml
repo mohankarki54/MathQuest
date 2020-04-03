@@ -14,4 +14,5 @@
     <string name="p6">  <u>6)</u> Select the Score to see your overall score.</string>
     <string name="p7">  <u>7)</u> Once done, press the EXIT to quit the game.</string>
     <string name="p8">  <u>8)</u> GOOD LUCK!!</string>
+    <string name="Quiz_mode"><u><b>Quiz Mode</b></u></string>
 </resources>

@@ -53,6 +53,9 @@ public class Division extends AppCompatActivity {
     TextView addscore, addques,adddate;
     Button goHome;
 
+    int level_score = 8; // this is to check the score and increase the level as per it.
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,7 +152,6 @@ public class Division extends AppCompatActivity {
 
 
         while( a % b != 0){
-            a = calculation.get_random_number(21);
             b = calculation.get_random_number1(11,1);
         }
 
@@ -181,6 +183,96 @@ public class Division extends AppCompatActivity {
 
     }
 
+
+    public void medium_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(31);
+        int b = calculation.get_random_number1(31,1);
+
+        while( a % b != 0){
+            b = calculation.get_random_number1(31,1);
+        }
+
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ " =");
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.division_result(a,b);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(61);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(61);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
+
+    public void hard_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(51);
+        int b = calculation.get_random_number1(51,1);
+
+        while( a % b != 0){
+            b = calculation.get_random_number1(51,1);
+        }
+
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b) + " = ");
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.division_result(a,b);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(61);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(61);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
 
     public void chooseAnswer(View view){
         //It will validate the answer that the user will select.
@@ -229,7 +321,7 @@ public class Division extends AppCompatActivity {
                         button5.setBackgroundColor(Color.GREEN);
                     }
                 }
-            }, 600);
+            }, 400);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -237,7 +329,7 @@ public class Division extends AppCompatActivity {
                     start.start();
                     callQuestion();
                 }
-            }, 1000);
+            }, 1300);
         }
         point.setText(Integer.toString(score));
     }
@@ -248,50 +340,22 @@ public class Division extends AppCompatActivity {
     }
 
     public void callQuestion(){
-        int flag;
 
-        if(score == 13) {
-            flag = 1;
-        }
-        else if(score ==25){
-            flag = 1;
-        }
-        else if(score ==30){
-            flag  = 1;
-        }
-        else if(score==36){
-            flag = 1;
-        }
-        else if(score > 45){
-            flag = 1;
-        }
-        else{
-            flag = 0;
-        }
-
-        if(flag == 1){
-            level_status = level_status + 1;
+        if(score == level_score){
+            level_status += 1;
+            level_score += 8;
         }
 
         level.setText("Level: " + String.valueOf(level_status));
 
-        if(score<=13) {
+        if(level_status < 3){
             generateQuestion();
         }
-        else if(score>13 && score <=25){
-            generateQuestion();
-        }
-        else if(score>25&& score<=30){
-            generateQuestion();
-        }
-        else if(score>30 && score<=36){
-            generateQuestion();
-        }
-        else if(score>36 && score<=40){
-            generateQuestion();
+        else if(level_status < 5){
+            medium_Question();
         }
         else{
-            generateQuestion();
+            hard_Question();
         }
     }
 

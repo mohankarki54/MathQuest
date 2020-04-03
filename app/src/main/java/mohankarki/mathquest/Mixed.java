@@ -53,6 +53,9 @@ public class Mixed extends AppCompatActivity {
     TextView  addscore, addques,adddate;
     Button goHome;
 
+    int level_score = 8; // this is to check the score and increase the level as per it.
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,6 +179,93 @@ public class Mixed extends AppCompatActivity {
     }
 
 
+    public void medium_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(16);
+        int b = calculation.get_random_number(16);
+        int c = calculation.get_random_number(11);
+        int d = calculation.get_random_number(11);
+
+        sum.setText("("+ "(" + String.valueOf(a) + " * " + String.valueOf(b)+ ")"+ " - " + String.valueOf(c)+ ")" +" + "+ String.valueOf(d) + "=");
+
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.addition_result(a,b);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(225);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(225);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
+
+    public void hard_Question(){
+
+        //This function will generate the question, answer, and set to the UI.
+        defaultColor();
+        setButtonClick();
+
+        numberOfQuestions++;
+        questionNo.setText(String.valueOf(numberOfQuestions));
+        clicked = 0;
+
+        int a = calculation.get_random_number(21);
+        int b = calculation.get_random_number(11);
+        int c = calculation.get_random_number(21);
+        int d = calculation.get_random_number(21);
+
+        sum.setText("("+ "(" +String.valueOf(a) + " * " + String.valueOf(b)+ ")"+ " - " + String.valueOf(c)+ ")" +" + "+ String.valueOf(d) + "=");
+
+        locationOFCorrect = calculation.get_random_number(4);
+        answers.clear();
+
+        int add_answer = calculation.addition_result_three(a,b,c);
+
+        int incorrectAnswer;
+        for(int i = 0; i<4; i++){
+            if(i == locationOFCorrect){
+                answers.add(add_answer);
+
+            } else {
+                incorrectAnswer = calculation.get_random_number(200);
+                while(incorrectAnswer == add_answer){
+                    incorrectAnswer = calculation.get_random_number(200);
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
+
+        button2.setText(Integer.toString(answers.get(0)));
+        button3.setText(Integer.toString(answers.get(1)));
+        button4.setText(Integer.toString(answers.get(2)));
+        button5.setText(Integer.toString(answers.get(3)));
+
+    }
+
     public void chooseAnswer(View view){
         //It will validate the answer that the user will select.
         if(view.getTag().toString().equals(Integer.toString(locationOFCorrect))){
@@ -223,7 +313,7 @@ public class Mixed extends AppCompatActivity {
                         button5.setBackgroundColor(Color.GREEN);
                     }
                 }
-            }, 600);
+            }, 400);
 
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -231,7 +321,7 @@ public class Mixed extends AppCompatActivity {
                     start.start();
                     callQuestion();
                 }
-            }, 1000);
+            }, 1300);
         }
         point.setText(Integer.toString(score));
     }
@@ -242,34 +332,23 @@ public class Mixed extends AppCompatActivity {
     }
 
     public void callQuestion(){
-        int flag;
 
-        if(score == 13) {
-            flag = 1;
-        }
-        else if(score ==25){
-            flag = 1;
-        }
-        else if(score ==30){
-            flag  = 1;
-        }
-        else if(score==36){
-            flag = 1;
-        }
-        else if(score > 45){
-            flag = 1;
-        }
-        else{
-            flag = 0;
-        }
-
-        if(flag == 1){
-            level_status = level_status + 1;
+        if(score == level_score){
+            level_status += 1;
+            level_score += 8;
         }
 
         level.setText("Level: " + String.valueOf(level_status));
 
-        generateQuestion();
+        if(level_status < 3){
+            generateQuestion();
+        }
+        else if(level_status < 5){
+            medium_Question();
+        }
+        else{
+            hard_Question();
+        }
     }
 
 
