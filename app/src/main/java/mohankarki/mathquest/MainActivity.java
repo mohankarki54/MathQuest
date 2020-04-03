@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
+        //This handler will automatically takes to the homepage with in 13 seconds.
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -32,6 +32,7 @@ public class Scores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
         goHome = findViewById(R.id.goHome);
+        //It will take the user to the Homepage
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,6 +133,7 @@ public class Scores extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        //It will execute if the user press the back button and takes to Homepage.
         Intent intent = new Intent(getApplicationContext(), Homepage.class);
         startActivity(intent);
         finish();

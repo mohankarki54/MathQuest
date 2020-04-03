@@ -17,6 +17,7 @@ public class Instruction extends AppCompatActivity {
         setContentView(R.layout.activity_instruction);
         home = findViewById(R.id.home);
 
+        //It will take the user to the Homepage
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

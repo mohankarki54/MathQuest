@@ -27,7 +27,7 @@ public class Division extends AppCompatActivity {
 
     Calculation calculation;
 
-    SharedPreferences sharedPreferencesinAddition;
+    SharedPreferences sharedPreferencesinAddition; //This the variable for the to use the SharedPreferences to store the value.
     int level_status = 1;
     int score;
     int numberOfQuestions = 0;
@@ -60,6 +60,7 @@ public class Division extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_division);
+        //These are button that will find the ID from the activity.
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
@@ -76,8 +77,8 @@ public class Division extends AppCompatActivity {
         clock.setImageResource(R.drawable.stopwatch);
 
         date = getCurrentDate(); //Gets the current date.
-        full = 90000;
-        half =15000;
+        full = 90000; //This is total time for whole quiz
+        half =15000; //This is the time for each question.
         playAgain();
     }
 
@@ -107,7 +108,7 @@ public class Division extends AppCompatActivity {
                 full = 0;
                 half = 0;
                 start.cancel();
-                save_data_to_sharedPreferences();
+                save_data_to_sharedPreferences(); //Save the scores of the user status.
                 setButtonCancel();
                 alertForDone();
             }
@@ -127,7 +128,7 @@ public class Division extends AppCompatActivity {
                 full = 0;
                 half = 0;
                 timer.setText("0s");
-                save_data_to_sharedPreferences();
+                save_data_to_sharedPreferences(); //Save the scores of the user status.
                 setButtonCancel();
                 alertForDone();
             }
@@ -155,7 +156,8 @@ public class Division extends AppCompatActivity {
             b = calculation.get_random_number1(11,1);
         }
 
-        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ "=");
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ "="); //This will the set the question in quiz layout.
+
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
@@ -175,7 +177,7 @@ public class Division extends AppCompatActivity {
                 answers.add(incorrectAnswer);
             }
         }
-
+        //This will set the answers in the quiz layout.
         button2.setText(Integer.toString(answers.get(0)));
         button3.setText(Integer.toString(answers.get(1)));
         button4.setText(Integer.toString(answers.get(2)));
@@ -186,7 +188,7 @@ public class Division extends AppCompatActivity {
 
     public void medium_Question(){
 
-        //This function will generate the question, answer, and set to the UI.
+        //This function will medium generate the question, answer, and set to the UI.
         defaultColor();
         setButtonClick();
 
@@ -201,7 +203,8 @@ public class Division extends AppCompatActivity {
             b = calculation.get_random_number1(31,1);
         }
 
-        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ " =");
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b)+ " ="); //This will the set the question in quiz layout.
+
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
@@ -221,7 +224,7 @@ public class Division extends AppCompatActivity {
                 answers.add(incorrectAnswer);
             }
         }
-
+        //This will set the answers in the quiz layout.
         button2.setText(Integer.toString(answers.get(0)));
         button3.setText(Integer.toString(answers.get(1)));
         button4.setText(Integer.toString(answers.get(2)));
@@ -231,7 +234,7 @@ public class Division extends AppCompatActivity {
 
     public void hard_Question(){
 
-        //This function will generate the question, answer, and set to the UI.
+        //This function will hard generate the question, answer, and set to the UI.
         defaultColor();
         setButtonClick();
 
@@ -246,7 +249,8 @@ public class Division extends AppCompatActivity {
             b = calculation.get_random_number1(51,1);
         }
 
-        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b) + " = ");
+        sum.setText(String.valueOf(a) + " ÷ " + String.valueOf(b) + " = "); //This will the set the question in quiz layout.
+
 
         locationOFCorrect = calculation.get_random_number(4);
         answers.clear();
@@ -266,7 +270,7 @@ public class Division extends AppCompatActivity {
                 answers.add(incorrectAnswer);
             }
         }
-
+        //This will set the answers in the quiz layout.
         button2.setText(Integer.toString(answers.get(0)));
         button3.setText(Integer.toString(answers.get(1)));
         button4.setText(Integer.toString(answers.get(2)));
@@ -305,6 +309,7 @@ public class Division extends AppCompatActivity {
 
             clicked++;
             setButtonCancel();
+            //This Handler will select the correct answer if the users clicks the wrong one.
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -340,7 +345,7 @@ public class Division extends AppCompatActivity {
     }
 
     public void callQuestion(){
-
+    //This function will be used to call the question based on the level of the user.
         if(score == level_score){
             level_status += 1;
             level_score += 8;
@@ -361,6 +366,7 @@ public class Division extends AppCompatActivity {
 
 
     public void setButtonCancel(){
+        //This will set the button to unclickable once the user press the one answer.
         button2.setClickable(false);
         button3.setClickable(false);
         button4.setClickable(false);
@@ -368,6 +374,7 @@ public class Division extends AppCompatActivity {
     }
 
     public void setButtonClick(){
+        //This will set the button to clickable once the new questions will come.
         button2.setClickable(true);
         button3.setClickable(true);
         button4.setClickable(true);
@@ -376,6 +383,7 @@ public class Division extends AppCompatActivity {
     }
 
     public void defaultColor(){
+        //It will set the background color to the default one.
         button2.setBackgroundResource(R.drawable.button);
         button3.setBackgroundResource(R.drawable.button);
         button4.setBackgroundResource(R.drawable.button);
@@ -428,6 +436,7 @@ public class Division extends AppCompatActivity {
         tryagain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //This will set the quiz time to 90 seconds and each question will 15 seconds once the users preess the play again button.
                 full = 90000;
                 half =15000;
                 playAgain();
@@ -435,6 +444,7 @@ public class Division extends AppCompatActivity {
             }
         });
 
+        //This will take to the  Homepage once the user press the Home button.
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -449,6 +459,7 @@ public class Division extends AppCompatActivity {
     }
 
     public String getCurrentDate() {
+        //It will return the current Date that the user will play the quiz.
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd ");
         String strDate = mdformat.format(calendar.getTime());
