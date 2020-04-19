@@ -30,7 +30,7 @@
             android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
             android:textColor="@color/result_text"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/addscore"
@@ -41,7 +41,7 @@
             android:textColor="@color/result_text"
             android:fontFamily="serif-monospace"
             android:paddingRight="15dp"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,14 +52,14 @@
         >
 
         <TextView
-            android:layout_width="185dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="24dp"
-            android:text="Question:     "
+            android:paddingRight="5dp"
+            android:text="Question: "
             android:textColor="@color/result_text"
             android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/addques"
@@ -68,7 +68,7 @@
             android:paddingLeft="20dp"
             android:textColor="@color/result_text"
             android:fontFamily="serif-monospace"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +86,7 @@
             android:textColor="@color/result_text"
             android:layout_marginLeft="25dp"
             android:fontFamily="serif-monospace"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/addlevel"
@@ -95,7 +95,7 @@
             android:fontFamily="serif-monospace"
             android:paddingLeft="20dp"
             android:textColor="@color/result_text"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -108,11 +108,11 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:paddingRight="24dp"
-            android:text="Date:     "
+            android:text="Date:       "
             android:textColor="@color/result_text"
             android:fontFamily="serif-monospace"
             android:layout_marginLeft="25dp"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/adddate"
@@ -121,7 +121,7 @@
             android:fontFamily="serif-monospace"
             android:paddingLeft="20dp"
             android:textColor="@color/result_text"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,16 +151,6 @@
         android:layout_width="match_parent"
         android:layout_height="58dp">
 
-        <Button
-            android:id="@+id/play"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:fontFamily="serif-monospace"
-            android:layout_weight="1"
-            android:soundEffectsEnabled="false"
-            android:text="Play Again"
-            android:textColor="@color/text_color_button" />
 
         <Button
             android:id="@+id/goHome"
@@ -171,7 +161,22 @@
             android:layout_weight="1"
             android:soundEffectsEnabled="false"
             android:text="Home"
+            android:textSize="30dp"
             android:textColor="@color/text_color_button" />
+
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="serif-monospace"
+            android:layout_weight="1"
+            android:soundEffectsEnabled="false"
+            android:text="Play Again"
+            android:textSize="30dp"
+            android:textColor="@color/text_color_button" />
+
     </LinearLayout>
 
 </LinearLayout>

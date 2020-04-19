@@ -5,14 +5,14 @@
     <string name="division"><u>Division Quiz</u></string>
     <string name="Multiplication"><u>Multiplication Quiz</u></string>
     <string name="Mixed_Quiz"><u>Mixed Quiz</u></string>
-    <string name="instruction"><b><u>Instructions on how to use the application.</u></b></string>
-    <string name="p1">  <u> 1)</u> Click the desired mode to play the game.</string>
-    <string name="p2">  <u>2)</u> Initially, you will be awarded 30 seconds to finish the game for the level 1 mode, you’ll have 10 seconds to pick the right option for each question. a.	If you select the right option, you’ll be awarded points for that question and next question will show. b.	However, if the option you selected is incorrect, !!!Wrong!!! message will be show and correct option will be highlighted, with red box.</string>
-    <string name="p3">  <u>3)</u> Once the timer is over, and your level, Score and number of questions you had attempted will show in the screen.</string>
-    <string name="p4">  <u>4)</u> To try again the same level, press TRY AGAIN, to go back press HOME.</string>
-    <string name="p5">  <u>5)</u> We have different modes of games to choose from, addition, subtraction, division, multiplication and mixed quizzes.</string>
-    <string name="p6">  <u>6)</u> Select the Score to see your overall score.</string>
-    <string name="p7">  <u>7)</u> Once done, press the EXIT to quit the game.</string>
+    <string name="instruction"><b><u>Instruction of application.</u></b></string>
+    <string name="p1">  <u> 1)</u> Select Any modes to play the quiz.</string>
+    <string name="p2">  <u>2)</u> Full Quiz Time : 90 seconds, Each question time is 15 seconds.</string>
+    <string name="p3">  <u>3)</u>Select answer from 4 answers available.</string>
+    <string name="p4">  <u>4)</u>Time over: Player Status will show. </string>
+    <string name="p5">  <u>5)</u> Select Play again - Restart Quiz, Home :- Homepage to Start.</string>
+    <string name="p6">  <u>6)</u> Score - Display Score.</string>
+    <string name="p7">  <u>7)</u> Press the EXIT to quit the game.</string>
     <string name="p8">  <u>8)</u> GOOD LUCK!!</string>
     <string name="Quiz_mode"><u><b>Quiz Mode</b></u></string>
 </resources>

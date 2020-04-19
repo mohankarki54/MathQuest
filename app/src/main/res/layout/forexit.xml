@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:soundEffectsEnabled="false"
             android:layout_marginLeft="5dp"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:layout_height="wrap_content"
             android:textColor="@color/text_color_button"
             />
@@ -39,7 +39,7 @@
             android:text="Yes"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:soundEffectsEnabled="false"
             android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"

@@ -25,7 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/instruction"
-                android:textSize="20dp"
+                android:textSize="28dp"
+                android:layout_gravity="center_vertical|end"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -50,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p1"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -75,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p2"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -100,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p3"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -125,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p4"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -150,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p5"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -175,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p6"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -200,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p7"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -225,7 +226,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/p8"
-                android:textSize="17dp"
+                android:textSize="24dp"
                 android:fontFamily="serif-monospace"
                 android:textStyle="bold"
                 android:textColor="#271152"/>
@@ -252,7 +253,7 @@
             android:text="Back"
             android:layout_gravity="center"
             android:textColor="@color/text_color_button"
-            android:textSize="25dp" />
+            android:textSize="27dp" />
 
         <ImageView
             android:layout_width="match_parent"
